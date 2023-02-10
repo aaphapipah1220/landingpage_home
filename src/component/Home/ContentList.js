@@ -3,8 +3,6 @@ import { withRouter } from "react-router-dom";
 
 import BodyContent from "./BodyContent";
 
-// import MapContent from "./MapContent";
-
 class ContentList extends React.Component {
   constructor(props) {
     super(props);
@@ -18,9 +16,5 @@ class ContentList extends React.Component {
     return <BodyContent data={this.state.data.data.rows} />;
   }
 }
-
-// function ContentList({ rows }) {
-//   return rows.map((status) => <BodyContent key={status.status} {...status} />);
-// }
 
 export default withRouter(ContentList);

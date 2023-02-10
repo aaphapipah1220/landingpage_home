@@ -167,7 +167,7 @@ async function getTicket(id) {
   return { error: false, data: responseJson.data };
 }
 
-async function countStatusTicket() {
+async function getCountStatusTicket() {
   const response = await fetchWithToken(`${BASE_URL}/ticket/countstatus`, {
     method: "GET",
     headers: {
@@ -186,32 +186,16 @@ async function countStatusTicket() {
   return { error: false, data: responseJson.data };
 }
 
-async function deleteTicket(id) {
-  const response = await fetchWithToken(`${BASE_URL}/ticket/${id}`, {
-    method: "DELETE",
-  });
-
-  const responseJson = await response.json();
-
-  if (responseJson.status !== "success") {
-    alert(responseJson.message);
-    return { error: true };
-  }
-
-  return { error: false };
-}
-
 export {
   getAccessToken,
   putAccessToken,
   login,
   getUserLogged,
   getTicketNoToken,
-  deleteTicket,
   getStatusOpen,
   getStatusPending,
   getStatusSuccess,
   getStatusClosed,
   getTicket,
-  countStatusTicket,
+  getCountStatusTicket,
 };

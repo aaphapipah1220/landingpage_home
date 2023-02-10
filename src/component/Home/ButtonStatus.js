@@ -6,6 +6,7 @@ import {
   getStatusPending,
   getStatusClosed,
   getStatusSuccess,
+  getCountStatusTicket,
 } from "../../utils/api";
 
 class ButtonStatus extends React.Component {
@@ -13,7 +14,10 @@ class ButtonStatus extends React.Component {
     super(props);
 
     this.state = {
-      dataTikcet: "",
+      open: "",
+      pending: "",
+      closed: "",
+      success: "",
     };
 
     this.onClickButtonOpenHandler = this.onClickButtonOpenHandler.bind(this);
@@ -23,6 +27,19 @@ class ButtonStatus extends React.Component {
       this.onClickButtonClosedHandler.bind(this);
     this.onClickButtonSuccessHandler =
       this.onClickButtonSuccessHandler.bind(this);
+  }
+
+  async componentDidMount() {
+    const { data } = await getCountStatusTicket();
+
+    this.setState(() => {
+      return {
+        open: data[0].open,
+        pending: data[0].pending,
+        success: data[0].success,
+        closed: data[0].closed,
+      };
+    });
   }
 
   async onClickButtonOpenHandler(event) {
@@ -81,16 +98,27 @@ class ButtonStatus extends React.Component {
     return (
       <section>
         <div>
-          <card onClick={this.onClickButtonOpenHandler}>Tiket Baru</card>
+          <card
+            onClick={this.onClickButtonOpenHandler}
+            {...this.state.countTicket}
+          >
+            Tiket Baru <div>{this.state.open}</div>
+          </card>
         </div>
         <div>
-          <card onClick={this.onClickButtonSuccessHandler}>Tiket Sukses</card>
+          <card onClick={this.onClickButtonSuccessHandler}>
+            Tiket Sukses <div>{this.state.success}</div>
+          </card>
         </div>
         <div>
-          <card onClick={this.onClickButtonPendingHandler}>Tiket Tertunda</card>
+          <card onClick={this.onClickButtonPendingHandler}>
+            Tiket Tertunda <div>{this.state.pending}</div>
+          </card>
         </div>
         <div>
-          <card onClick={this.onClickButtonClosedHandler}>Tiket Selesai</card>
+          <card onClick={this.onClickButtonClosedHandler}>
+            Tiket Selesai <div>{this.state.closed}</div>
+          </card>
         </div>
         ;
       </section>
