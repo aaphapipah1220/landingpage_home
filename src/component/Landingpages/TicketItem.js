@@ -12,9 +12,11 @@ const TicketItem = (props) => {
             Tanggal Tiket: {props.data.resiAccepted}
           </li>
           <li className="ticket__item-list">
+            Masa Garansi: {props.data.guaranteeDate}
+          </li>
+          <li className="ticket__item-list">
             Pelanggan: {props.data.customer}
           </li>
-          {/* <li>Masa Garansi: {props.data.status}</li> */}
           <li className="ticket__item-list-status">
             <b>Status: {props.data.status}</b>
           </li>
