@@ -5,24 +5,26 @@ const TicketDetail = (props) => {
   console.log(data);
   return (
     <section>
-      <div className="container ticket__item">
-        <ul>
-          <li className="ticket__item-list-noTicket">
+      <div className="container">
+        <div className="ticket__detail-container">
+          <h5 className="ticket__detail-list-noTicket">
             No Tiket: {data.noTicket}
-          </li>
-          <li className="ticket__item-list">
+          </h5>
+          <p className="ticket__detail-list">
             Tanggal Tiket: {data.resiAccepted}
-          </li>
-          <li className="ticket__item-list-status">Status: {data.status}</li>
-          <li className="ticket__item-list">Pelanggan: {data.customer}</li>
-          <li className="ticket__item-list">
+          </p>
+          <p className="ticket__detail-list-status">Status: {data.status}</p>
+          <p className="ticket__detail-list">Pelanggan: {data.customer}</p>
+          <p className="ticket__detail-list">
             Detail Pelanggan: {data.detailCustomer}
-          </li>
-          <li className="ticket__item-list">Tipe: {data.type}</li>
-          <li className="ticket__item-list">Masalah: {data.case}</li>
-          <li className="ticket__item-list">Catatan: {data.remark}</li>
-          {/* <li>Masa Garansi: {props.data.status}</li> */}
-        </ul>
+          </p>
+          <p className="ticket__detail-list">Tipe: {data.type}</p>
+          <p className="ticket__detail-list">Masalah: {data.case}</p>
+          <p className="ticket__detail-list">Catatan: {data.remark}</p>
+          <p className="ticket__detail-list">
+            Masa Garansi: {data.guaranteeDate}
+          </p>
+        </div>
       </div>
     </section>
   );

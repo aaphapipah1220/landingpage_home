@@ -1,0 +1,35 @@
+.container {
+    width: 70%;
+    margin: auto;
+    margin-top: 6rem;
+    padding: 1rem;
+    padding-top: 1.8rem;
+    background-color:rgb(171, 171, 199);
+    border-bottom: 5px;
+}
+
+.body__content-container {
+    background-color: rgb(224, 215, 215);
+    padding: 0.8rem;
+    border-bottom: 1px solid rgb(2, 2, 107);
+}
+
+.body__content-container:hover {
+    border-bottom: 1px solid rgb(28, 190, 211);
+}
+
+.body__content p {
+    margin: 0;
+    padding: 0;
+}
+
+.ticket__detail-container {
+    margin-left: 6rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.ticket__detail-container p {
+    margin: 0;
+    padding: 0.3rem;
+}

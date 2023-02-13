@@ -5,23 +5,23 @@ const BodyContent = (props) => {
   let data = props.data;
 
   if (!data.length) {
-    return <p>Belum ada tiket</p>;
+    return <p className="body__content-null">Belum ada tiket</p>;
   }
 
   return (
-    <section>
-      <div>
+    <section className="container">
+      <div className="body__content-container">
         {data.map((rows) => {
           return (
-            <ul>
-              <li className="body__content-status">
+            <div className="body__content">
+              <p className="body__content-status">
                 <b>{rows.status}</b>
-              </li>
-              <li>
+              </p>
+              <p className="body__content-noticket">
                 <Link to={`/ticket/${rows.noTicket}`}>{rows.noTicket}</Link>
-              </li>
-              <li>{rows.customer}</li>
-            </ul>
+              </p>
+              <p className="body__content-customer">{rows.customer}</p>
+            </div>
           );
         })}
       </div>
